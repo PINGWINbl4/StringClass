@@ -29,22 +29,21 @@ int main() {
 
 	if (strings.empty()) {
 		std::cout << "No strings entered. Using default test data..." << std::endl;
+		
+		const char* test_data[] = {
+			"Apple", "banana", "Cherry", "date", "ELEPHANT",
+			"apple", "123", "!@#", "Zebra", nullptr
+		};
 
-		strings.push_back(String("Apple"));
-		strings.push_back(String("banana"));
-		strings.push_back(String("Cherry"));
-		strings.push_back(String("date"));
-		strings.push_back(String("ELEPHANT"));
-		strings.push_back(String("apple"));
-		strings.push_back(String("123"));
-		strings.push_back(String("!@#"));
-		strings.push_back(String("Zebra"));
+		for (const auto& test_str : test_data) {
+			strings.push_back(String(test_str));
+		}
 	}
 
 
 	std::cout << "\nOriginal list (" << strings.size() << " strings):" << std::endl;
 	for (const auto& str : strings) {
-		std::cout << "  " << str.c_str() << std::endl;
+		std::cout << "  " << str.data() << std::endl;
 	}
 
 	// reverse lexicographical order
@@ -54,7 +53,7 @@ int main() {
 
 	std::cout << "\nResult in reverse lexicographical order (case-insensitive):" << std::endl;
 	for (const auto& str : strings) {
-		std::cout << str.c_str() << std::endl;
+		std::cout << str.data() << std::endl;
 	}
 
 	return 0;

@@ -42,7 +42,7 @@ public:
 	friend String operator+(const char* lhs, const String& rhs);
 
 	//methods
-	const char* c_str() const;
+	const char* data() const;
 	size_t length() const;
 	bool empty() const;
 
